@@ -6,3 +6,69 @@
 	-ms-user-select: none;
 	user-select: none;
 }
+
+@mixin form-label($color) {
+	margin: 20px 0 8px;
+	display: block;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: $color;
+	text-transform: uppercase;
+}
+
+@mixin form-input($color, $background) {
+	padding: 10px;
+	display: block;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 1.4rem;
+	font-weight: 500;
+	background-color: $background;
+	color: $color;
+	letter-spacing: 0.5px;
+}
+
+@mixin link($color) {
+	margin: 4px 0 20px;
+	padding: 2px 0;
+	font-size: 1.3rem;
+	color: $color;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@mixin btn($color, $background, $backgroundHover) {
+	margin: 0 0 8px;
+	padding: 14px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 1.5rem;
+	color: $color;
+	background-color: $background;
+	transition: 0.2s background-color ease-in-out;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $backgroundHover;
+	}
+}
+
+@mixin drop {
+	animation: drop 0.2s forwards;
+
+	@keyframes drop {
+		from {
+			top: -200px;
+			transform: scale(1.2);
+			opacity: 50%;
+		}
+		to {
+			top: 0;
+			transform: scale(1);
+			opacity: 100%;
+		}
+	}
+}
