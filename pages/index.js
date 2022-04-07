@@ -1,3 +1,11 @@
 export default function HomePage() {
-	return <div>Welcome to Next.js!</div>
+	return null
+}
+
+export async function getStaticProps() {
+	return {
+		redirect: {
+			destination: '/login',
+		},
+	}
 }
