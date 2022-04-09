@@ -1,11 +1,5 @@
-export default function HomePage() {
-	return null
-}
+import Home from '../components/home/Home'
 
-export async function getStaticProps() {
-	return {
-		redirect: {
-			destination: '/login',
-		},
-	}
+export default function HomePage() {
+	return <Home />
 }
