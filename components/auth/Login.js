@@ -25,13 +25,13 @@ export default function Login() {
 			return
 		}
 
-		if (!enteredPassword) {
-			setErrorPassword('Password is required')
+		if (!validateEmail(enteredEmail)) {
+			setErrorEmail('Enter valid email')
 			return
 		}
 
-		if (!validateEmail(enteredEmail)) {
-			setErrorEmail('Enter valid email')
+		if (!enteredPassword) {
+			setErrorPassword('Password is required')
 			return
 		}
 
