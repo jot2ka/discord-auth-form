@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react'
+import Link from 'next/link'
 import classes from './Login.module.scss'
 
 import { validateEmail } from '../../lib/auth'
 
 export default function Login() {
-	const [errorEmail, setErrorEmail] = useState(null)
-	const [errorPassword, setErrorPassword] = useState(null)
-
 	const emailRef = useRef()
 	const passwordRef = useRef()
+
+	const [errorEmail, setErrorEmail] = useState(null)
+	const [errorPassword, setErrorPassword] = useState(null)
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -38,8 +39,6 @@ export default function Login() {
 			setErrorPassword('Enter at least 6 characters password')
 			return
 		}
-
-		console.log('Zalogowano')
 	}
 
 	return (
@@ -57,7 +56,7 @@ export default function Login() {
 							adres email <span className={classes.error}>- {errorEmail}</span>
 						</label>
 					) : (
-						<label className={classes.label}>adres e-mail</label>
+						<label className={classes.label}>adres email</label>
 					)}
 					<input
 						className={classes.input}
@@ -73,7 +72,6 @@ export default function Login() {
 					) : (
 						<label className={classes.label}>hasło</label>
 					)}
-
 					<input
 						className={classes.input}
 						type='password'
@@ -86,7 +84,9 @@ export default function Login() {
 					</button>
 					<p className={classes.account}>
 						Potrzebujesz konta?{' '}
-						<span className={classes.link}>Zarejestruj się</span>
+						<Link href='/register'>
+							<a className={classes.link}>Zarejestruj się</a>
+						</Link>
 					</p>
 				</form>
 			</div>

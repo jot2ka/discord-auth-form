@@ -1,0 +1,217 @@
+@use '../../styles/utilities/' as *;
+
+.position {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	.container {
+		@include noselect;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		width: 100vw;
+		height: 100vh;
+		padding: 32px;
+		background-color: $dark;
+
+		.header {
+			text-align: center;
+
+			.title {
+				margin: 0 0 8px;
+				font-size: 2.6rem;
+				font-weight: 800;
+				color: $white;
+			}
+		}
+
+		.form {
+			.label {
+				@include form-label($light);
+			}
+
+			.labelError {
+				@include form-label($red);
+
+				.error {
+					font-style: italic;
+					text-transform: capitalize;
+				}
+			}
+
+			.input {
+				@include form-input($light, $black);
+			}
+
+			.date {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.clear {
+					z-index: 1;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+				}
+
+				.select {
+					z-index: 2;
+					position: relative;
+					display: flex;
+					align-items: center;
+					height: 40px;
+					width: 132px;
+					padding-left: 12px;
+					font-size: 1.6rem;
+					font-weight: 300;
+					border: 1px solid $black;
+					border-radius: 5px;
+					background-color: $darker;
+					transition: 0.2s border ease-in-out;
+					cursor: pointer;
+
+					.list {
+						z-index: 0;
+						position: absolute;
+						bottom: 38px;
+						left: -1px;
+						height: 200px;
+						width: 132px;
+						border: 1px solid black;
+						border-radius: 5px;
+						background-color: $darker;
+						list-style: none;
+						overflow-y: scroll;
+
+						.item {
+							display: flex;
+							align-items: center;
+							height: 40px;
+							padding-left: 8px;
+							font-weight: 500;
+							color: $light;
+
+							&:hover {
+								background-color: #2a2c30;
+							}
+						}
+
+						&::-webkit-scrollbar {
+							width: 8px;
+						}
+
+						&::-webkit-scrollbar-thumb {
+							border-radius: 10px;
+							background-color: $black;
+						}
+					}
+
+					&:hover {
+						border: 1px solid black;
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 15px;
+						right: 8px;
+						border-left: 8px solid transparent;
+						border-right: 8px solid transparent;
+						border-top: 8px solid $light;
+					}
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 12px;
+						right: 8px;
+						border-left: 8px solid transparent;
+						border-right: 8px solid transparent;
+						border-top: 8px solid $darker;
+					}
+				}
+			}
+
+			.checkboxes {
+				margin-top: 20px;
+
+				.checkbox {
+					display: flex;
+					align-items: center;
+					margin-bottom: 8px;
+					cursor: pointer;
+
+					.check {
+						@include checkbox($gray, $light, $blurple);
+					}
+
+					.description {
+						font-size: 1.2rem;
+						color: $light;
+
+						.link {
+							@include link($blurple-light, 1.2rem);
+						}
+					}
+				}
+
+				.optional {
+					display: flex;
+					align-items: center;
+					margin-bottom: 8px;
+					cursor: pointer;
+
+					.check {
+						@include checkbox($gray, $light, $blurple);
+					}
+
+					.description {
+						font-size: 1.2rem;
+						color: $gray;
+					}
+				}
+			}
+
+			.submit {
+				@include btn($white, $blurple, $blurple-dark);
+				margin-top: 12px;
+			}
+
+			.isChecked {
+				@include btn($light, $blurple-dark, $blurple-dark);
+				margin-top: 12px;
+				opacity: 50%;
+				cursor: not-allowed;
+				pointer-events: all !important;
+			}
+
+			.account {
+				margin: 4px 0 0;
+				font-size: 1.3rem;
+				color: $gray;
+
+				.link {
+					@include link($blurple-light, 1.3rem);
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 486px) {
+	.position {
+		.container {
+			@include drop;
+			position: relative;
+			width: 480px;
+			height: fit-content;
+			border-radius: 5px;
+			box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+		}
+	}
+}

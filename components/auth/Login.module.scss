@@ -41,8 +41,8 @@
 				@include form-label($red);
 
 				.error {
-					text-transform: capitalize;
 					font-style: italic;
+					text-transform: capitalize;
 				}
 			}
 
@@ -51,7 +51,7 @@
 			}
 
 			.forget {
-				@include link($blurple-light);
+				@include link($blurple-light, 1.3rem);
 			}
 
 			.submit {
@@ -64,12 +64,7 @@
 				color: $gray;
 
 				.link {
-					color: $blurple-light;
-					cursor: pointer;
-
-					&:hover {
-						text-decoration: underline;
-					}
+					@include link($blurple-light, 1.3rem);
 				}
 			}
 		}

@@ -8,31 +8,32 @@
 }
 
 @mixin form-label($color) {
-	margin: 20px 0 8px;
 	display: block;
+	margin: 20px 0 8px;
 	font-size: 1.2rem;
 	font-weight: 700;
-	color: $color;
 	text-transform: uppercase;
+	color: $color;
 }
 
 @mixin form-input($color, $background) {
-	padding: 10px;
 	display: block;
 	width: 100%;
-	border-radius: 5px;
+	padding: 12px;
 	font-size: 1.4rem;
 	font-weight: 500;
+	border-radius: 5px;
+	letter-spacing: 0.5px;
 	background-color: $background;
 	color: $color;
-	letter-spacing: 0.5px;
 }
 
-@mixin link($color) {
+@mixin link($color, $size) {
 	margin: 4px 0 20px;
 	padding: 2px 0;
-	font-size: 1.3rem;
+	font-size: $size;
 	color: $color;
+	text-decoration: none;
 	cursor: pointer;
 
 	&:hover {
@@ -41,13 +42,13 @@
 }
 
 @mixin btn($color, $background, $backgroundHover) {
+	width: 100%;
 	margin: 0 0 8px;
 	padding: 14px;
-	width: 100%;
-	border-radius: 5px;
 	font-size: 1.5rem;
-	color: $color;
+	border-radius: 5px;
 	background-color: $background;
+	color: $color;
 	transition: 0.2s background-color ease-in-out;
 	cursor: pointer;
 
@@ -61,8 +62,8 @@
 
 	@keyframes drop {
 		from {
-			top: -200px;
-			transform: scale(1.2);
+			top: -100px;
+			transform: scale(1.1);
 			opacity: 50%;
 		}
 		to {
@@ -70,5 +71,27 @@
 			transform: scale(1);
 			opacity: 100%;
 		}
+	}
+}
+
+@mixin checkbox($border, $color, $background) {
+	height: 24px;
+	flex-basis: 24px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin-right: 8px;
+	border: $border 1px solid;
+	border-radius: 5px;
+	overflow: hidden;
+
+	.checkboxIcon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		font-size: 16px;
+		background-color: $background;
+		color: $color;
 	}
 }
