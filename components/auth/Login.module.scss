@@ -58,13 +58,23 @@
 				@include btn($white, $blurple, $blurple-dark);
 			}
 
-			.account {
-				margin: 4px 0 0;
-				font-size: 1.3rem;
-				color: $gray;
+			.footer {
+				display: flex;
+				justify-content: space-between;
+
+				.account {
+					font-size: 1.3rem;
+					margin: 4px 0 0;
+					color: $gray;
+
+					.link {
+						@include link($blurple-light, 1.3rem);
+					}
+				}
 
 				.link {
 					@include link($blurple-light, 1.3rem);
+					margin: 0;
 				}
 			}
 		}

@@ -314,11 +314,16 @@ export default function Register() {
 							Kontynuuj
 						</button>
 					)}
-					<p className={classes.account}>
-						<Link href='/login'>
-							<a className={classes.link}>Masz już konto?</a>
+					<div className={classes.footer}>
+						<p className={classes.account}>
+							<Link href='/login'>
+								<a className={classes.link}>Masz już konto?</a>
+							</Link>
+						</p>
+						<Link href='/'>
+							<a className={classes.link}>Strona główna</a>
 						</Link>
-					</p>
+					</div>
 				</form>
 			</div>
 		</div>

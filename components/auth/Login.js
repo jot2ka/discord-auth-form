@@ -82,12 +82,17 @@ export default function Login() {
 					<button className={classes.submit} type='submit'>
 						Zaloguj się
 					</button>
-					<p className={classes.account}>
-						Potrzebujesz konta?{' '}
-						<Link href='/register'>
-							<a className={classes.link}>Zarejestruj się</a>
+					<div className={classes.footer}>
+						<p className={classes.account}>
+							Potrzebujesz konta?{' '}
+							<Link href='/register'>
+								<a className={classes.link}>Zarejestruj się</a>
+							</Link>
+						</p>
+						<Link href='/'>
+							<a className={classes.link}>Strona główna</a>
 						</Link>
-					</p>
+					</div>
 				</form>
 			</div>
 		</div>
