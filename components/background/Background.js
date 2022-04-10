@@ -1,6 +1,8 @@
 import classes from './Background.module.scss'
 
 export default function Background() {
+	// if (true) return null
+
 	return (
 		<div className={classes.canvas}>
 			<div className={classes.cloud1}>
