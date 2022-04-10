@@ -8,6 +8,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 import { validateEmail } from '../../lib/auth'
 import { dayList, monthList, yearList, validateDate } from '../../lib/date'
+import { isEmailExists, isNameExists } from '../../lib/fakeDatabase'
 
 export default function Register() {
 	const emailRef = useRef()
@@ -31,6 +32,8 @@ export default function Register() {
 	const [errorName, setErrorName] = useState(null)
 	const [errorPassword, setErrorPassword] = useState(null)
 	const [errorDate, setErrorDate] = useState(null)
+
+	const [isRegistered, setIsRegistered] = useState(false)
 
 	function handleLists(event) {
 		const type = event.target.getAttribute('data-type')
@@ -120,6 +123,11 @@ export default function Register() {
 			return
 		}
 
+		if (isEmailExists(enteredEmail)) {
+			setErrorEmail('This email already exists')
+			return
+		}
+
 		if (!enteredName) {
 			setErrorName('Name is required')
 			return
@@ -127,6 +135,11 @@ export default function Register() {
 
 		if (enteredName.length < 5) {
 			setErrorName('Enter at least 5 characters name')
+			return
+		}
+
+		if (isNameExists(enteredName)) {
+			setErrorName('This name already exists')
 			return
 		}
 
@@ -161,10 +174,26 @@ export default function Register() {
 			setErrorDate('Enter valid date')
 			return
 		}
+
+		setIsRegistered(true)
 	}
 
 	return (
 		<div className={classes.position}>
+			{isRegistered && (
+				<div className={classes.isRegistered}>
+					<div className={classes.dialog}>
+						<div className={classes.message}>
+							<div className={classes.title}>
+								Poprawnie zarejestrowano użytkownika
+							</div>
+							<Link href='/'>
+								<a className={classes.link}>Strona główna</a>
+							</Link>
+						</div>
+					</div>
+				</div>
+			)}
 			<div className={classes.container}>
 				<div className={classes.header}>
 					<h2 className={classes.title}>Załóż konto</h2>

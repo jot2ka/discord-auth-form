@@ -6,6 +6,45 @@
 	align-items: center;
 	height: 100vh;
 
+	.isRegistered {
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background-color: rgba(0 0 0 / 50%);
+
+		.dialog {
+			@include drop;
+			width: 420px;
+			margin-top: 64px;
+			border-radius: 5px;
+			background-color: #58f28b;
+
+			.message {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				padding: 32px;
+
+				.title {
+					margin-bottom: 16px;
+					font-size: 2rem;
+					font-weight: 500;
+				}
+
+				.link {
+					@include link($blurple, 1.6rem);
+					margin: 0;
+				}
+			}
+		}
+	}
+
 	.container {
 		@include noselect;
 		display: flex;

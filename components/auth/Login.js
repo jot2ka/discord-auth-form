@@ -3,6 +3,7 @@ import Link from 'next/link'
 import classes from './Login.module.scss'
 
 import { validateEmail } from '../../lib/auth'
+import { isPasswordCorrect, isEmailExists } from '../../lib/fakeDatabase'
 
 export default function Login() {
 	const emailRef = useRef()
@@ -10,6 +11,8 @@ export default function Login() {
 
 	const [errorEmail, setErrorEmail] = useState(null)
 	const [errorPassword, setErrorPassword] = useState(null)
+
+	const [isLogged, setIsLogged] = useState(false)
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -30,6 +33,11 @@ export default function Login() {
 			return
 		}
 
+		if (!isEmailExists(enteredEmail)) {
+			setErrorEmail('Wrong email or password')
+			return
+		}
+
 		if (!enteredPassword) {
 			setErrorPassword('Password is required')
 			return
@@ -39,10 +47,31 @@ export default function Login() {
 			setErrorPassword('Enter at least 6 characters password')
 			return
 		}
+
+		if (!isPasswordCorrect(enteredEmail, enteredPassword)) {
+			setErrorPassword('Wrong email or password')
+			return
+		}
+
+		setIsLogged(true)
 	}
 
 	return (
 		<div className={classes.position}>
+			{isLogged && (
+				<div className={classes.isLogged}>
+					<div className={classes.dialog}>
+						<div className={classes.message}>
+							<div className={classes.title}>
+								Poprawnie zalogowano użytkownika
+							</div>
+							<Link href='/'>
+								<a className={classes.link}>Strona główna</a>
+							</Link>
+						</div>
+					</div>
+				</div>
+			)}
 			<div className={classes.container}>
 				<div className={classes.header}>
 					<h2 className={classes.title}>Witamy ponownie!</h2>
