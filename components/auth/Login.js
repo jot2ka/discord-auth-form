@@ -33,11 +33,6 @@ export default function Login() {
 			return
 		}
 
-		if (!isEmailExists(enteredEmail)) {
-			setErrorEmail('Wrong email or password')
-			return
-		}
-
 		if (!enteredPassword) {
 			setErrorPassword('Password is required')
 			return
@@ -48,7 +43,11 @@ export default function Login() {
 			return
 		}
 
-		if (!isPasswordCorrect(enteredEmail, enteredPassword)) {
+		if (
+			!isEmailExists(enteredEmail) ||
+			!isPasswordCorrect(enteredEmail, enteredPassword)
+		) {
+			setErrorEmail('Wrong email or password')
 			setErrorPassword('Wrong email or password')
 			return
 		}
