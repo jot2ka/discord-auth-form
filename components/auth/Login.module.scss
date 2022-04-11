@@ -48,7 +48,6 @@
 	.container {
 		@include noselect;
 		display: flex;
-		justify-content: center;
 		flex-direction: column;
 		width: 100vw;
 		height: 100vh;
@@ -125,6 +124,7 @@
 	.position {
 		.container {
 			@include drop;
+			justify-content: center;
 			position: relative;
 			width: 480px;
 			height: fit-content;

@@ -1,4 +1,5 @@
 .canvas {
+	display: block;
 	z-index: -1;
 	position: absolute;
 	width: 100vw;
@@ -137,6 +138,12 @@
 			right: 20px;
 			bottom: 40px;
 		}
+	}
+}
+
+@media (max-width: 460px) {
+	.canvas {
+		display: none;
 	}
 }
 
