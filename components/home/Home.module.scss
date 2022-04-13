@@ -54,7 +54,8 @@
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
-			height: calc(100vh - 80px);
+			// height: calc(100vh - 80px);
+			background-color: red;
 
 			.title {
 				@include noselect;
@@ -74,7 +75,7 @@
 
 			.list {
 				list-style: none;
-				// margin: 16px 8px 8px;
+				margin: 16px 8px 16px;
 				padding: 16px;
 				border-radius: 5px;
 				background-color: #2e3440;
@@ -140,7 +141,6 @@
 
 			main.main {
 				justify-content: flex-start;
-				margin: 16px 0 0;
 			}
 		}
 	}
