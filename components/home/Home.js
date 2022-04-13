@@ -27,36 +27,38 @@ export default function Home() {
 	})
 
 	return (
-		<div className={classes.container}>
-			<nav className={classes.nav}>
-				<div className={classes.logo}>
-					<div className={classes.icon}>{discord}</div>
-					<div className={classes.name}>Discord</div>
-				</div>
-				<Link href='/login'>
-					<a className={classes.login}>Zaloguj się</a>
-				</Link>
-			</nav>
-			<main className={classes.main}>
-				<div className={classes.title}>Discord auth form ...</div>
-				<div className={classes.subtitle}>... with some fake database.</div>
-				<ul className={classes.list}>
-					<li className={classes.item}>
-						<code>
-							<span className={classes.blue}>const</span>{' '}
-							<span className={classes.white}>fakeDatabase</span>{' '}
-							<span className={classes.blue}>=</span>{' '}
-							<span className={classes.yellow}>[</span>
-						</code>
-					</li>
-					{renderDatabase}
-					<li className={classes.item}>
-						<code>
-							<span className={classes.yellow}>]</span>
-						</code>
-					</li>
-				</ul>
-			</main>
+		<div className={classes.position}>
+			<div className={classes.container}>
+				<nav className={classes.nav}>
+					<div className={classes.logo}>
+						<div className={classes.icon}>{discord}</div>
+						<div className={classes.name}>Discord</div>
+					</div>
+					<Link href='/login'>
+						<a className={classes.login}>Zaloguj się</a>
+					</Link>
+				</nav>
+				<main className={classes.main}>
+					<div className={classes.title}>Discord auth form ...</div>
+					<div className={classes.subtitle}>... with some fake database.</div>
+					<ul className={classes.list}>
+						<li className={classes.item}>
+							<code>
+								<span className={classes.blue}>const</span>{' '}
+								<span className={classes.white}>fakeDatabase</span>{' '}
+								<span className={classes.blue}>=</span>{' '}
+								<span className={classes.yellow}>[</span>
+							</code>
+						</li>
+						{renderDatabase}
+						<li className={classes.item}>
+							<code>
+								<span className={classes.yellow}>]</span>
+							</code>
+						</li>
+					</ul>
+				</main>
+			</div>
 		</div>
 	)
 }
